@@ -1,5 +1,6 @@
+#!/usr/bin/php
 <?php
-require_once 'PHPUnit/Autoload.php';
+require_once 'vendor/autoload.php';
 
 class TeamCity_PHPUnit_Framework_TestListener
     implements PHPUnit_Framework_TestListener
@@ -91,7 +92,7 @@ class TeamCity_PHPUnit_Framework_TestListener
         );
         if ($e instanceof PHPUnit_Framework_ExpectationFailedException) {
             $comparisonFailure = $e->getComparisonFailure();
-            if ($comparisonFailure instanceof PHPUnit_Framework_ComparisonFailure) {
+            if ($comparisonFailure instanceof \SebastianBergmann\Comparator\ComparisonFailure) {
                 $actualResult = $comparisonFailure->getActual();
                 $expectedResult = $comparisonFailure->getExpected();
                 $actualString = self::getValueAsString($actualResult);
@@ -121,6 +122,11 @@ class TeamCity_PHPUnit_Framework_TestListener
             "message" => self::getMessage($e),
             "details" => self::getDetails($e)
         ));
+    }
+
+    public function addRiskyTest(PHPUnit_Framework_Test $test, Exception $e, $time)
+    {
+        $this->addError($test, $e, $time);
     }
 
     public function startTest(PHPUnit_Framework_Test $test)
@@ -202,4 +208,3 @@ class TeamCity_PHPUnit_TextUI_Command
     }
 }
 
-TeamCity_PHPUnit_TextUI_Command::main();

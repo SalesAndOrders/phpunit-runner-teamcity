@@ -1,0 +1,12 @@
+{
+    "name": "SalesAndOrders/teamcity",
+    "bin": [
+        "phpunit"
+    ],
+    "config": {
+        "bin-dir": "bin"
+    },
+    "require" : {
+        "phpunit/phpunit": "4.2.*"
+    }
+}

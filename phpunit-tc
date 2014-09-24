@@ -1,0 +1,5 @@
+#!/usr/bin/php
+<?php
+require 'phpunit-tc.php';
+
+TeamCity_PHPUnit_TextUI_Command::main();
