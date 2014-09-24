@@ -1,11 +1,8 @@
 {
     "name": "SalesAndOrders/phpunit-runner-teamcity",
     "bin": [
-        "phpunit"
+        "phpunit-tc"
     ],
-    "config": {
-        "bin-dir": "bin"
-    },
     "require" : {
         "phpunit/phpunit": "4.2.*"
     }
