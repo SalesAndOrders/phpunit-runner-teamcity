@@ -1,5 +1,5 @@
 {
-    "name": "SalesAndOrders/teamcity",
+    "name": "SalesAndOrders/phpunit-runner-teamcity",
     "bin": [
         "phpunit"
     ],
